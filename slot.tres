@@ -1,0 +1,6 @@
+[gd_resource type="StreamTexture" format=2]
+
+[resource]
+resource_name = "empty_slot"
+flags = 4
+load_path = "res://.import/slot.png-3963447999e8535363b0a2f539643fbe.stex"

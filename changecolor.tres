@@ -1,0 +1,20 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+render_mode unshaded;//no light
+uniform vec4 new_color : hint_color ; //unifrom let u assign value from outside and cant be void type duh return cant be void
+void fragment(){
+	vec4 cur_color=texture(TEXTURE,UV);//get texture color
+	if (cur_color== vec4(0,0,0,1)){ // all color goes by decimal and alph goes from 0 to 1 if black color then change black color to new color
+		COLOR= new_color ;//keyward COLOR=changes the color of the sprite
+		}
+	else{
+		COLOR=cur_color
+	}
+}"
+custom_defines = ""
+
+[resource]
+shader = SubResource( 1 )
+shader_param/new_color = Color( 0.52549, 0.298039, 0.298039, 1 )
