@@ -1,0 +1,88 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+content_margin_left = 15.0
+content_margin_right = 15.0
+content_margin_top = 2.0
+content_margin_bottom = 4.0
+bg_color = Color( 0.25098, 0.243137, 0.282353, 1 )
+border_width_left = 1
+border_width_top = 2
+border_width_right = 1
+border_color = Color( 0.227451, 0.215686, 0.25098, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+expand_margin_top = 3.0
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=2]
+content_margin_left = 15.0
+content_margin_right = 15.0
+content_margin_top = 2.0
+content_margin_bottom = 4.0
+bg_color = Color( 0.176471, 0.168627, 0.2, 1 )
+border_width_left = 1
+border_width_top = 2
+border_width_right = 1
+border_color = Color( 0.227451, 0.215686, 0.25098, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_detail = 4
+expand_margin_top = 3.0
+anti_aliasing = false
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CenterContainer_inv" type="CenterContainer" parent="."]
+margin_top = -0.210228
+margin_right = 375.0
+margin_bottom = 499.79
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TabContainer" type="TabContainer" parent="CenterContainer_inv"]
+margin_left = 7.0
+margin_top = 100.0
+margin_right = 367.0
+margin_bottom = 400.0
+rect_min_size = Vector2( 360, 300 )
+custom_styles/tab_fg = SubResource( 1 )
+custom_styles/tab_disabled = SubResource( 2 )
+custom_styles/tab_bg = SubResource( 2 )
+
+[node name="inventory" type="Panel" parent="CenterContainer_inv/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 28.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="upgrade" type="Panel" parent="CenterContainer_inv/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 28.0
+margin_right = -4.0
+margin_bottom = -4.0
+rect_min_size = Vector2( 352, 264 )
+
+[node name="farm" type="Panel" parent="CenterContainer_inv/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 28.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="Cooking" type="Panel" parent="CenterContainer_inv/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 28.0
+margin_right = -4.0
+margin_bottom = -4.0

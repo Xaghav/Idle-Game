@@ -1,0 +1,111 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://resource/game/character.tscn" type="PackedScene" id=1]
+[ext_resource path="res://resource/images/button.png" type="Texture" id=3]
+[ext_resource path="res://resource/images/backgrounddone.png" type="Texture" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[node name="background_custompsp" type="Sprite"]
+modulate = Color( 0.607843, 0.607843, 0.607843, 1 )
+texture = ExtResource( 5 )
+centered = false
+
+[node name="characterCustomization" parent="." instance=ExtResource( 1 )]
+scale = Vector2( 3.5, 3.5 )
+
+[node name="Node" type="Node" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Node"]
+margin_left = 120.0
+margin_top = 143.0
+margin_right = 202.0
+margin_bottom = 247.0
+rect_scale = Vector2( 1.5, 1.5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="face" type="Button" parent="Node/VBoxContainer"]
+margin_right = 82.0
+margin_bottom = 23.0
+custom_styles/hover = SubResource( 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.615686, 0.615686, 0.615686, 1 )
+text = "face"
+icon = ExtResource( 3 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="eye" type="Button" parent="Node/VBoxContainer"]
+margin_top = 27.0
+margin_right = 82.0
+margin_bottom = 50.0
+custom_styles/hover = SubResource( 2 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.615686, 0.615686, 0.615686, 1 )
+text = "eye"
+icon = ExtResource( 3 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="mouth" type="Button" parent="Node/VBoxContainer"]
+margin_top = 54.0
+margin_right = 82.0
+margin_bottom = 77.0
+custom_styles/hover = SubResource( 3 )
+custom_colors/font_color = Color( 0.803922, 0.803922, 0.803922, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.615686, 0.615686, 0.615686, 1 )
+text = "mouth"
+icon = ExtResource( 3 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="body" type="Button" parent="Node/VBoxContainer"]
+margin_top = 81.0
+margin_right = 82.0
+margin_bottom = 104.0
+custom_styles/hover = SubResource( 4 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.615686, 0.615686, 0.615686, 1 )
+text = "body"
+icon = ExtResource( 3 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="done" type="Button" parent="Node"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -53.2134
+margin_top = 310.094
+margin_right = 28.7866
+margin_bottom = 330.094
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.576471, 0.576471, 0.576471, 1 )
+custom_colors/font_color_pressed = Color( 0.262745, 0.262745, 0.262745, 1 )
+text = "Done"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Node/VBoxContainer/face" to="characterCustomization" method="_on_Button_pressed" binds= [ "button_face" ]]
+[connection signal="button_down" from="Node/VBoxContainer/eye" to="characterCustomization" method="_on_Button_pressed" binds= [ "button_eye" ]]
+[connection signal="pressed" from="Node/VBoxContainer/mouth" to="characterCustomization" method="_on_Button_pressed" binds= [ "button_mouth" ]]
+[connection signal="pressed" from="Node/VBoxContainer/body" to="characterCustomization" method="_on_Button_pressed" binds= [ "body" ]]
+[connection signal="pressed" from="Node/done" to="characterCustomization" method="_on_done_pressed"]
+
+[editable path="characterCustomization"]

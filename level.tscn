@@ -1,0 +1,484 @@
+[gd_scene load_steps=30 format=2]
+
+[ext_resource path="res://resource/images/weapon/0.png" type="Texture" id=1]
+[ext_resource path="res://resource/game/inventory.tscn" type="PackedScene" id=2]
+[ext_resource path="res://resource/game/pick.tscn" type="PackedScene" id=3]
+[ext_resource path="res://resource/game/spawn&death_track.tscn" type="PackedScene" id=4]
+[ext_resource path="res://resource/game/player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://resource/game/invtest.tscn" type="PackedScene" id=6]
+[ext_resource path="res://resource/game/farm.tscn" type="PackedScene" id=7]
+[ext_resource path="res://resource/game/level1.gd" type="Script" id=8]
+[ext_resource path="res://resource/images/weapon/leveOnebackground.png" type="Texture" id=9]
+[ext_resource path="res://resource/game/statupgrade.tscn" type="PackedScene" id=10]
+[ext_resource path="res://resource/images/pixel.ttf" type="DynamicFontData" id=11]
+[ext_resource path="res://resource/game/map.tscn" type="PackedScene" id=12]
+[ext_resource path="res://resource/images/gold.png" type="Texture" id=13]
+[ext_resource path="res://resource/game/OpenShop.gd" type="Script" id=14]
+[ext_resource path="res://resource/game/character.tscn" type="PackedScene" id=15]
+[ext_resource path="res://resource/game/cooking.tscn" type="PackedScene" id=16]
+[ext_resource path="res://resource/game/androidshop.tscn" type="PackedScene" id=17]
+
+[sub_resource type="ButtonGroup" id=1]
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.372549, 0.372549, 0.372549, 0.576471 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.45098, 0.45098, 0.45098, 0.576471 )
+
+[sub_resource type="Theme" id=4]
+
+[sub_resource type="ButtonGroup" id=5]
+
+[sub_resource type="ButtonGroup" id=6]
+
+[sub_resource type="ButtonGroup" id=7]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=8]
+
+[sub_resource type="DynamicFont" id=9]
+size = 10
+extra_spacing_char = 1
+font_data = ExtResource( 11 )
+
+[sub_resource type="ButtonGroup" id=10]
+
+[sub_resource type="ButtonGroup" id=11]
+
+[sub_resource type="StyleBoxFlat" id=12]
+bg_color = Color( 0.45098, 0.45098, 0.45098, 0.576471 )
+
+[node name="level" type="Node2D"]
+script = ExtResource( 8 )
+
+[node name="map" type="Button" parent="."]
+margin_left = 0.5
+margin_right = 82.5
+margin_bottom = 22.0
+text = "Select Map"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 375, 0 )
+
+[node name="background" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+modulate = Color( 0.492188, 0.492188, 0.492188, 1 )
+texture = ExtResource( 9 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 110, 375, 667 )
+
+[node name="inventory" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0, 264 )
+
+[node name="CenterContainer_inv" parent="inventory" index="0"]
+margin_top = 0.0
+margin_bottom = 500.0
+
+[node name="invetest" parent="inventory/CenterContainer_inv/TabContainer/inventory" index="0" groups=[
+"savegame",
+] instance=ExtResource( 6 )]
+position = Vector2( 24, 15 )
+
+[node name="TextureRect" parent="inventory/CenterContainer_inv/TabContainer/inventory/invetest/Panel/ScrollContainer/GridContainer" index="0"]
+texture = ExtResource( 1 )
+stat = [ "level", 1, "Cost", 25, "M Cost", 0, "Value", 25, "baseatk", 1 ]
+item_type = "axe"
+
+[node name="Control" parent="inventory/CenterContainer_inv/TabContainer/inventory/invetest" index="2"]
+modulate = Color( 1, 1, 1, 1 )
+margin_left = -28.0
+margin_top = -108.0
+margin_right = 334.0
+margin_bottom = -50.0
+mouse_filter = 2
+
+[node name="selected" parent="inventory/CenterContainer_inv/TabContainer/inventory/invetest/Control" index="0"]
+group = SubResource( 1 )
+
+[node name="gear" parent="inventory/CenterContainer_inv/TabContainer/inventory/invetest/Control" index="3"]
+custom_styles/panel = SubResource( 2 )
+
+[node name="weaponrh" parent="inventory/CenterContainer_inv/TabContainer/inventory/invetest/Control/gear/scroll/HBoxContainer/geardisplay/middle/HSplitContainer/VBoxContainer" index="1"]
+stat = [  ]
+
+[node name="player" parent="inventory/CenterContainer_inv/TabContainer/inventory/invetest/Control/gear/scroll/HBoxContainer/geardisplay/middle/HSplitContainer" index="1"]
+custom_styles/panel = SubResource( 3 )
+
+[node name="characterCustomization" parent="inventory/CenterContainer_inv/TabContainer/inventory/invetest/Control/gear/scroll/HBoxContainer/geardisplay/middle/HSplitContainer/player" index="0" instance=ExtResource( 15 )]
+modulate = Color( 1, 1, 1, 0.45098 )
+position = Vector2( 50, 29 )
+
+[node name="item" parent="inventory/CenterContainer_inv/TabContainer/inventory/invetest/Control" index="6"]
+margin_top = 0.0
+margin_bottom = 60.0
+
+[node name="Multisellamount" parent="inventory/CenterContainer_inv/TabContainer/inventory/invetest" index="3"]
+visible = false
+
+[node name="upgrade" parent="inventory/CenterContainer_inv/TabContainer" index="1"]
+margin_top = 20.0
+focus_mode = 1
+theme = SubResource( 4 )
+
+[node name="Node2D" parent="inventory/CenterContainer_inv/TabContainer/upgrade" index="0" groups=[
+"savegame",
+] instance=ExtResource( 10 )]
+
+[node name="farm" parent="inventory/CenterContainer_inv/TabContainer" index="2"]
+margin_top = 20.0
+
+[node name="farm" parent="inventory/CenterContainer_inv/TabContainer/farm" index="0" groups=[
+"savegame",
+] instance=ExtResource( 7 )]
+position = Vector2( -11, -394 )
+
+[node name="ScrollContainer" parent="inventory/CenterContainer_inv/TabContainer/farm/farm" index="0"]
+scroll_horizontal_enabled = false
+
+[node name="SHOP" parent="inventory/CenterContainer_inv/TabContainer/farm/farm/ScrollContainer/CenterContainer" index="1" groups=[
+"savegame",
+]]
+
+[node name="ScrollContainer2" parent="inventory/CenterContainer_inv/TabContainer/farm/farm" index="2"]
+scroll_horizontal_enabled = false
+
+[node name="TextureRect" parent="inventory/CenterContainer_inv/TabContainer/farm/farm/ScrollContainer2/GridContainer" index="0"]
+group = SubResource( 5 )
+
+[node name="TextureRect2" parent="inventory/CenterContainer_inv/TabContainer/farm/farm/ScrollContainer2/GridContainer" index="1"]
+group = SubResource( 5 )
+
+[node name="TextureRect3" parent="inventory/CenterContainer_inv/TabContainer/farm/farm/ScrollContainer2/GridContainer" index="2"]
+group = SubResource( 5 )
+
+[node name="TextureRect4" parent="inventory/CenterContainer_inv/TabContainer/farm/farm/ScrollContainer2/GridContainer" index="3"]
+group = SubResource( 5 )
+
+[node name="TextureRect5" parent="inventory/CenterContainer_inv/TabContainer/farm/farm/ScrollContainer2/GridContainer" index="4"]
+group = SubResource( 5 )
+
+[node name="TextureRect6" parent="inventory/CenterContainer_inv/TabContainer/farm/farm/ScrollContainer2/GridContainer" index="5"]
+group = SubResource( 5 )
+
+[node name="TextureRect7" parent="inventory/CenterContainer_inv/TabContainer/farm/farm/ScrollContainer2/GridContainer" index="6"]
+group = SubResource( 5 )
+
+[node name="TextureRect8" parent="inventory/CenterContainer_inv/TabContainer/farm/farm/ScrollContainer2/GridContainer" index="7"]
+group = SubResource( 5 )
+
+[node name="TextureRect9" parent="inventory/CenterContainer_inv/TabContainer/farm/farm/ScrollContainer2/GridContainer" index="8"]
+group = SubResource( 5 )
+
+[node name="TextureRect10" parent="inventory/CenterContainer_inv/TabContainer/farm/farm/ScrollContainer2/GridContainer" index="9"]
+group = SubResource( 5 )
+
+[node name="TextureRect11" parent="inventory/CenterContainer_inv/TabContainer/farm/farm/ScrollContainer2/GridContainer" index="10"]
+group = SubResource( 5 )
+
+[node name="TextureRect12" parent="inventory/CenterContainer_inv/TabContainer/farm/farm/ScrollContainer2/GridContainer" index="11"]
+group = SubResource( 5 )
+
+[node name="TextureRect13" parent="inventory/CenterContainer_inv/TabContainer/farm/farm/ScrollContainer2/GridContainer" index="12"]
+group = SubResource( 5 )
+
+[node name="TextureRect14" parent="inventory/CenterContainer_inv/TabContainer/farm/farm/ScrollContainer2/GridContainer" index="13"]
+group = SubResource( 5 )
+
+[node name="TextureRect15" parent="inventory/CenterContainer_inv/TabContainer/farm/farm/ScrollContainer2/GridContainer" index="14"]
+group = SubResource( 5 )
+
+[node name="TextureRect16" parent="inventory/CenterContainer_inv/TabContainer/farm/farm/ScrollContainer2/GridContainer" index="15"]
+group = SubResource( 5 )
+
+[node name="TextureRect17" parent="inventory/CenterContainer_inv/TabContainer/farm/farm/ScrollContainer2/GridContainer" index="16"]
+group = SubResource( 6 )
+
+[node name="TextureRect18" parent="inventory/CenterContainer_inv/TabContainer/farm/farm/ScrollContainer2/GridContainer" index="17"]
+group = SubResource( 6 )
+
+[node name="TextureRect19" parent="inventory/CenterContainer_inv/TabContainer/farm/farm/ScrollContainer2/GridContainer" index="18"]
+group = SubResource( 6 )
+
+[node name="TextureRect20" parent="inventory/CenterContainer_inv/TabContainer/farm/farm/ScrollContainer2/GridContainer" index="19"]
+group = SubResource( 7 )
+
+[node name="Cooking" parent="inventory/CenterContainer_inv/TabContainer" index="3"]
+margin_top = 20.0
+margin_bottom = -7.0
+
+[node name="Cooking" parent="inventory/CenterContainer_inv/TabContainer/Cooking" index="0" instance=ExtResource( 16 )]
+position = Vector2( -11, -394 )
+
+[node name="AnimatedSprite" parent="inventory/CenterContainer_inv/TabContainer/Cooking/Cooking" index="3"]
+frame = 2
+
+[node name="create&drop" parent="." instance=ExtResource( 3 )]
+
+[node name="player" parent="." groups=[
+"savegame",
+] instance=ExtResource( 5 )]
+position = Vector2( 0, 270 )
+
+[node name="AnimatedSprite" parent="player" index="1"]
+frame = 2
+
+[node name="AnimationTree" parent="player" index="3"]
+parameters/playback = SubResource( 8 )
+
+[node name="Label" parent="player" index="4"]
+custom_fonts/font = SubResource( 9 )
+text = "HP"
+
+[node name="TextureProgress" parent="player" index="5"]
+tint_under = Color( 0.819608, 0.819608, 0.819608, 1 )
+tint_progress = Color( 0.886275, 0.145098, 0.145098, 1 )
+
+[node name="Label2" parent="player" index="6"]
+margin_left = -67.0
+margin_top = -6.0
+margin_right = 28.0
+margin_bottom = 10.0
+align = 1
+valign = 1
+
+[node name="attack" parent="player" index="7"]
+text = " Attack"
+
+[node name="TextureProgress2" parent="player" index="9"]
+self_modulate = Color( 0.45098, 0.45098, 0.45098, 0.380392 )
+value = 50.0
+tint_progress = Color( 0.654902, 0.654902, 0.654902, 1 )
+
+[node name="spawn&death_track" parent="." instance=ExtResource( 4 )]
+position = Vector2( 405, 271 )
+
+[node name="Popup" type="Popup" parent="."]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 367.0
+margin_bottom = 236.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Map" parent="Popup" instance=ExtResource( 12 )]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 0.0
+margin_bottom = 0.0
+
+[node name="CheckBox" parent="Popup/Map/Panel/Panel2/HBoxContainer/Panel" index="1"]
+group = SubResource( 10 )
+
+[node name="CheckBox2" parent="Popup/Map/Panel/Panel2/HBoxContainer/Panel2" index="1"]
+group = SubResource( 10 )
+
+[node name="CheckBox3" parent="Popup/Map/Panel/Panel2/HBoxContainer/Panel3" index="1"]
+group = SubResource( 10 )
+
+[node name="CheckBox4" parent="Popup/Map/Panel/Panel2/HBoxContainer/Panel4" index="1"]
+group = SubResource( 10 )
+
+[node name="CheckBox5" parent="Popup/Map/Panel/Panel2/HBoxContainer/Panel5" index="1"]
+group = SubResource( 10 )
+
+[node name="checkButton" parent="Popup/Map/Panel/Panel2/HBoxContainer2" index="1"]
+group = SubResource( 11 )
+
+[node name="checkButton2" parent="Popup/Map/Panel/Panel2/HBoxContainer2" index="2"]
+group = SubResource( 11 )
+
+[node name="checkButton3" parent="Popup/Map/Panel/Panel2/HBoxContainer2" index="3"]
+group = SubResource( 11 )
+
+[node name="Panel" type="Panel" parent="."]
+margin_left = 94.0
+margin_right = 235.0
+margin_bottom = 44.0
+custom_styles/panel = SubResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="Panel"]
+position = Vector2( 1, 1 )
+texture = ExtResource( 13 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 20, 20 )
+
+[node name="Label" type="Label" parent="Panel"]
+margin_left = 23.0
+margin_top = 2.0
+margin_right = 63.0
+margin_bottom = 22.0
+rect_min_size = Vector2( 40, 20 )
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite2" type="Sprite" parent="Panel"]
+position = Vector2( 1, 23 )
+texture = ExtResource( 13 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 20, 0, 20, 20 )
+
+[node name="Label" type="Label" parent="Panel/Sprite2"]
+margin_left = 23.0
+margin_top = 4.0
+margin_right = 63.0
+margin_bottom = 18.0
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="savebutton" type="Button" parent="."]
+margin_left = 0.5
+margin_top = 30.0
+margin_right = 79.5
+margin_bottom = 55.0
+text = "SaveGame"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AcceptDialog" type="AcceptDialog" parent="."]
+margin_left = 5.0
+margin_top = 79.0
+margin_right = 265.0
+margin_bottom = 205.0
+mouse_filter = 2
+popup_exclusive = true
+window_title = "Tutorial"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OpenShop" type="Button" parent="."]
+margin_left = 0.5
+margin_top = 64.0
+margin_right = 50.5
+margin_bottom = 89.0
+rect_min_size = Vector2( 50, 0 )
+text = "Shop"
+script = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Node2D" parent="." instance=ExtResource( 17 )]
+visible = false
+position = Vector2( 91, 72 )
+
+[node name="Button" type="Button" parent="Node2D"]
+margin_left = 91.0
+margin_top = -25.0
+margin_right = 175.0
+text = "Close Shop"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="map" to="." method="_on_Button_pressed"]
+[connection signal="tab_changed" from="inventory/CenterContainer_inv/TabContainer" to="player" method="_on_TabContainer_tab_changed"]
+[connection signal="inventory_update" from="create&drop" to="inventory/CenterContainer_inv/TabContainer/inventory/invetest" method="_on_createdrop_inventory_update"]
+[connection signal="dropitem" from="spawn&death_track" to="create&drop" method="_on_spawndeath_track_dropitem"]
+[connection signal="maplevel" from="Popup/Map" to="spawn&death_track" method="_on_Map_maplevel"]
+[connection signal="pressed" from="savebutton" to="." method="_on_savebutton_pressed"]
+[connection signal="pressed" from="OpenShop" to="OpenShop" method="_on_OpenShop_pressed"]
+[connection signal="pressed" from="Node2D/Button" to="OpenShop" method="_on_Button_pressed"]
+
+[editable path="inventory"]
+
+[editable path="inventory/CenterContainer_inv/TabContainer/inventory/invetest"]
+
+[editable path="inventory/CenterContainer_inv/TabContainer/inventory/invetest/Control/gear/scroll/HBoxContainer/geardisplay/middle/HSplitContainer/player/characterCustomization"]
+
+[editable path="inventory/CenterContainer_inv/TabContainer/upgrade/Node2D"]
+
+[editable path="inventory/CenterContainer_inv/TabContainer/farm/farm"]
+
+[editable path="inventory/CenterContainer_inv/TabContainer/farm/farm/ScrollContainer2"]
+
+[editable path="inventory/CenterContainer_inv/TabContainer/farm/farm/ScrollContainer2/GridContainer/TextureRect"]
+
+[editable path="inventory/CenterContainer_inv/TabContainer/farm/farm/ScrollContainer2/GridContainer/TextureRect2"]
+
+[editable path="inventory/CenterContainer_inv/TabContainer/farm/farm/ScrollContainer2/GridContainer/TextureRect3"]
+
+[editable path="inventory/CenterContainer_inv/TabContainer/farm/farm/ScrollContainer2/GridContainer/TextureRect4"]
+
+[editable path="inventory/CenterContainer_inv/TabContainer/farm/farm/ScrollContainer2/GridContainer/TextureRect5"]
+
+[editable path="inventory/CenterContainer_inv/TabContainer/farm/farm/ScrollContainer2/GridContainer/TextureRect6"]
+
+[editable path="inventory/CenterContainer_inv/TabContainer/farm/farm/ScrollContainer2/GridContainer/TextureRect7"]
+
+[editable path="inventory/CenterContainer_inv/TabContainer/farm/farm/ScrollContainer2/GridContainer/TextureRect8"]
+
+[editable path="inventory/CenterContainer_inv/TabContainer/farm/farm/ScrollContainer2/GridContainer/TextureRect9"]
+
+[editable path="inventory/CenterContainer_inv/TabContainer/farm/farm/ScrollContainer2/GridContainer/TextureRect10"]
+
+[editable path="inventory/CenterContainer_inv/TabContainer/farm/farm/ScrollContainer2/GridContainer/TextureRect11"]
+
+[editable path="inventory/CenterContainer_inv/TabContainer/farm/farm/ScrollContainer2/GridContainer/TextureRect12"]
+
+[editable path="inventory/CenterContainer_inv/TabContainer/farm/farm/ScrollContainer2/GridContainer/TextureRect13"]
+
+[editable path="inventory/CenterContainer_inv/TabContainer/farm/farm/ScrollContainer2/GridContainer/TextureRect14"]
+
+[editable path="inventory/CenterContainer_inv/TabContainer/farm/farm/ScrollContainer2/GridContainer/TextureRect15"]
+
+[editable path="inventory/CenterContainer_inv/TabContainer/farm/farm/ScrollContainer2/GridContainer/TextureRect16"]
+
+[editable path="inventory/CenterContainer_inv/TabContainer/Cooking/Cooking"]
+
+[editable path="inventory/CenterContainer_inv/TabContainer/Cooking/Cooking/ScrollContainer/GridContainer/cookslot"]
+
+[editable path="inventory/CenterContainer_inv/TabContainer/Cooking/Cooking/ScrollContainer/GridContainer/cookslot2"]
+
+[editable path="inventory/CenterContainer_inv/TabContainer/Cooking/Cooking/ScrollContainer/GridContainer/cookslot3"]
+
+[editable path="inventory/CenterContainer_inv/TabContainer/Cooking/Cooking/ScrollContainer/GridContainer/cookslot4"]
+
+[editable path="inventory/CenterContainer_inv/TabContainer/Cooking/Cooking/ScrollContainer/GridContainer/cookslot5"]
+
+[editable path="inventory/CenterContainer_inv/TabContainer/Cooking/Cooking/ScrollContainer/GridContainer/cookslot6"]
+
+[editable path="inventory/CenterContainer_inv/TabContainer/Cooking/Cooking/ScrollContainer/GridContainer/cookslot7"]
+
+[editable path="inventory/CenterContainer_inv/TabContainer/Cooking/Cooking/ScrollContainer/GridContainer/cookslot8"]
+
+[editable path="inventory/CenterContainer_inv/TabContainer/Cooking/Cooking/ScrollContainer/GridContainer/cookslot9"]
+
+[editable path="inventory/CenterContainer_inv/TabContainer/Cooking/Cooking/ScrollContainer/GridContainer/cookslot10"]
+
+[editable path="inventory/CenterContainer_inv/TabContainer/Cooking/Cooking/ScrollContainer/GridContainer/cookslot11"]
+
+[editable path="inventory/CenterContainer_inv/TabContainer/Cooking/Cooking/ScrollContainer/GridContainer/cookslot12"]
+
+[editable path="inventory/CenterContainer_inv/TabContainer/Cooking/Cooking/ScrollContainer/GridContainer/cookslot13"]
+
+[editable path="inventory/CenterContainer_inv/TabContainer/Cooking/Cooking/ScrollContainer/GridContainer/cookslot14"]
+
+[editable path="inventory/CenterContainer_inv/TabContainer/Cooking/Cooking/ScrollContainer/GridContainer/cookslot15"]
+
+[editable path="inventory/CenterContainer_inv/TabContainer/Cooking/Cooking/ScrollContainer/GridContainer/cookslot16"]
+
+[editable path="create&drop"]
+
+[editable path="player"]
+
+[editable path="spawn&death_track"]
+
+[editable path="Popup/Map"]

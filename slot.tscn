@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://resource/images/button.png" type="Texture" id=1]
+[ext_resource path="res://resource/game/slottest.gd" type="Script" id=2]
+
+[node name="slot" type="TextureRect" groups=[
+"slot",
+]]
+margin_right = 133.0
+margin_bottom = 520.0
+rect_min_size = Vector2( 70, 70 )
+focus_mode = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="focus_entered" from="." to="." method="_on_TextureRect_focus_entered"]
+[connection signal="gui_input" from="." to="." method="_on_TextureRect_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_TextureRect_mouse_entered"]

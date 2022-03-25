@@ -1,0 +1,984 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://resource/game/invtest.gd" type="Script" id=1]
+[ext_resource path="res://resource/game/slottest.gd" type="Script" id=2]
+[ext_resource path="res://resource/game/itemoption.gd" type="Script" id=3]
+[ext_resource path="res://resource/game/sorting_inventory.gd" type="Script" id=4]
+[ext_resource path="res://resource/game/Multisellamount.gd" type="Script" id=5]
+[ext_resource path="res://resource/images/slot.tres" type="Texture" id=6]
+[ext_resource path="res://resource/images/button.png" type="Texture" id=7]
+[ext_resource path="res://resource/game/equipment.gd" type="Script" id=8]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="ButtonGroup" id=2]
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.0941176, 0.0941176, 0.0941176, 0 )
+border_width_left = 5
+border_width_top = 6
+border_width_right = 5
+border_width_bottom = 6
+border_color = Color( 0.0941176, 0.0941176, 0.0941176, 0.576471 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0, 0, 0, 1 )
+
+[node name="invetest" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+
+[node name="Panel" type="Panel" parent="."]
+margin_right = 315.0
+margin_bottom = 230.0
+rect_min_size = Vector2( 315, 230 )
+rect_clip_content = true
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
+margin_right = 315.0
+margin_bottom = 230.0
+follow_focus = true
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="Panel/ScrollContainer"]
+margin_right = 292.0
+margin_bottom = 440.0
+columns = 4
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Panel/ScrollContainer/GridContainer" groups=[
+"slot",
+]]
+margin_right = 70.0
+margin_bottom = 70.0
+focus_mode = 1
+texture = ExtResource( 6 )
+script = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="Panel/ScrollContainer/GridContainer/TextureRect"]
+margin_left = 4.0
+margin_top = 51.0
+margin_right = 28.0
+margin_bottom = 65.0
+rect_min_size = Vector2( 24, 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="Panel/ScrollContainer/GridContainer" groups=[
+"slot",
+]]
+margin_left = 74.0
+margin_right = 144.0
+margin_bottom = 70.0
+focus_mode = 1
+texture = ExtResource( 6 )
+script = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="Panel/ScrollContainer/GridContainer/TextureRect2"]
+margin_left = 4.0
+margin_top = 51.0
+margin_right = 44.0
+margin_bottom = 65.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect3" type="TextureRect" parent="Panel/ScrollContainer/GridContainer" groups=[
+"slot",
+]]
+margin_left = 148.0
+margin_right = 218.0
+margin_bottom = 70.0
+focus_mode = 1
+texture = ExtResource( 6 )
+script = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="Panel/ScrollContainer/GridContainer/TextureRect3"]
+margin_left = 4.0
+margin_top = 51.0
+margin_right = 44.0
+margin_bottom = 65.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect4" type="TextureRect" parent="Panel/ScrollContainer/GridContainer" groups=[
+"slot",
+]]
+margin_left = 222.0
+margin_right = 292.0
+margin_bottom = 70.0
+focus_mode = 1
+texture = ExtResource( 6 )
+script = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="Panel/ScrollContainer/GridContainer/TextureRect4"]
+margin_left = 4.0
+margin_top = 51.0
+margin_right = 44.0
+margin_bottom = 65.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect5" type="TextureRect" parent="Panel/ScrollContainer/GridContainer" groups=[
+"slot",
+]]
+margin_top = 74.0
+margin_right = 70.0
+margin_bottom = 144.0
+focus_mode = 1
+texture = ExtResource( 6 )
+script = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="Panel/ScrollContainer/GridContainer/TextureRect5"]
+margin_left = 4.0
+margin_top = 51.0
+margin_right = 44.0
+margin_bottom = 65.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect6" type="TextureRect" parent="Panel/ScrollContainer/GridContainer" groups=[
+"slot",
+]]
+margin_left = 74.0
+margin_top = 74.0
+margin_right = 144.0
+margin_bottom = 144.0
+focus_mode = 1
+texture = ExtResource( 6 )
+script = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="Panel/ScrollContainer/GridContainer/TextureRect6"]
+margin_left = 4.0
+margin_top = 51.0
+margin_right = 44.0
+margin_bottom = 65.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect7" type="TextureRect" parent="Panel/ScrollContainer/GridContainer" groups=[
+"slot",
+]]
+margin_left = 148.0
+margin_top = 74.0
+margin_right = 218.0
+margin_bottom = 144.0
+focus_mode = 1
+texture = ExtResource( 6 )
+script = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="Panel/ScrollContainer/GridContainer/TextureRect7"]
+margin_left = 4.0
+margin_top = 51.0
+margin_right = 44.0
+margin_bottom = 65.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect8" type="TextureRect" parent="Panel/ScrollContainer/GridContainer" groups=[
+"slot",
+]]
+margin_left = 222.0
+margin_top = 74.0
+margin_right = 292.0
+margin_bottom = 144.0
+focus_mode = 1
+texture = ExtResource( 6 )
+script = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="Panel/ScrollContainer/GridContainer/TextureRect8"]
+margin_left = 4.0
+margin_top = 51.0
+margin_right = 44.0
+margin_bottom = 65.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect9" type="TextureRect" parent="Panel/ScrollContainer/GridContainer" groups=[
+"slot",
+]]
+margin_top = 148.0
+margin_right = 70.0
+margin_bottom = 218.0
+focus_mode = 1
+texture = ExtResource( 6 )
+script = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="Panel/ScrollContainer/GridContainer/TextureRect9"]
+margin_left = 4.0
+margin_top = 51.0
+margin_right = 44.0
+margin_bottom = 65.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect10" type="TextureRect" parent="Panel/ScrollContainer/GridContainer" groups=[
+"slot",
+]]
+margin_left = 74.0
+margin_top = 148.0
+margin_right = 144.0
+margin_bottom = 218.0
+focus_mode = 1
+texture = ExtResource( 6 )
+script = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="Panel/ScrollContainer/GridContainer/TextureRect10"]
+margin_left = 4.0
+margin_top = 51.0
+margin_right = 44.0
+margin_bottom = 65.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect11" type="TextureRect" parent="Panel/ScrollContainer/GridContainer" groups=[
+"slot",
+]]
+margin_left = 148.0
+margin_top = 148.0
+margin_right = 218.0
+margin_bottom = 218.0
+focus_mode = 1
+texture = ExtResource( 6 )
+script = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="Panel/ScrollContainer/GridContainer/TextureRect11"]
+margin_left = 4.0
+margin_top = 51.0
+margin_right = 44.0
+margin_bottom = 65.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect12" type="TextureRect" parent="Panel/ScrollContainer/GridContainer" groups=[
+"slot",
+]]
+margin_left = 222.0
+margin_top = 148.0
+margin_right = 292.0
+margin_bottom = 218.0
+focus_mode = 1
+texture = ExtResource( 6 )
+script = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="Panel/ScrollContainer/GridContainer/TextureRect12"]
+margin_left = 4.0
+margin_top = 51.0
+margin_right = 44.0
+margin_bottom = 65.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect13" type="TextureRect" parent="Panel/ScrollContainer/GridContainer" groups=[
+"slot",
+]]
+margin_top = 222.0
+margin_right = 70.0
+margin_bottom = 292.0
+focus_mode = 1
+texture = ExtResource( 6 )
+script = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="Panel/ScrollContainer/GridContainer/TextureRect13"]
+margin_left = 4.0
+margin_top = 51.0
+margin_right = 44.0
+margin_bottom = 65.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect14" type="TextureRect" parent="Panel/ScrollContainer/GridContainer" groups=[
+"slot",
+]]
+margin_left = 74.0
+margin_top = 222.0
+margin_right = 144.0
+margin_bottom = 292.0
+focus_mode = 1
+texture = ExtResource( 6 )
+script = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="Panel/ScrollContainer/GridContainer/TextureRect14"]
+margin_left = 4.0
+margin_top = 51.0
+margin_right = 44.0
+margin_bottom = 65.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect15" type="TextureRect" parent="Panel/ScrollContainer/GridContainer" groups=[
+"slot",
+]]
+margin_left = 148.0
+margin_top = 222.0
+margin_right = 218.0
+margin_bottom = 292.0
+focus_mode = 1
+texture = ExtResource( 6 )
+script = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="Panel/ScrollContainer/GridContainer/TextureRect15"]
+margin_left = 4.0
+margin_top = 51.0
+margin_right = 44.0
+margin_bottom = 65.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect16" type="TextureRect" parent="Panel/ScrollContainer/GridContainer" groups=[
+"slot",
+]]
+margin_left = 222.0
+margin_top = 222.0
+margin_right = 292.0
+margin_bottom = 292.0
+focus_mode = 1
+texture = ExtResource( 6 )
+script = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="Panel/ScrollContainer/GridContainer/TextureRect16"]
+margin_left = 4.0
+margin_top = 51.0
+margin_right = 44.0
+margin_bottom = 65.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect17" type="TextureRect" parent="Panel/ScrollContainer/GridContainer" groups=[
+"slot",
+]]
+margin_top = 296.0
+margin_right = 70.0
+margin_bottom = 366.0
+focus_mode = 1
+texture = ExtResource( 6 )
+script = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="Panel/ScrollContainer/GridContainer/TextureRect17"]
+margin_left = 4.0
+margin_top = 51.0
+margin_right = 44.0
+margin_bottom = 65.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect18" type="TextureRect" parent="Panel/ScrollContainer/GridContainer" groups=[
+"slot",
+]]
+margin_left = 74.0
+margin_top = 296.0
+margin_right = 144.0
+margin_bottom = 366.0
+focus_mode = 1
+texture = ExtResource( 6 )
+script = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="Panel/ScrollContainer/GridContainer/TextureRect18"]
+margin_left = 4.0
+margin_top = 51.0
+margin_right = 44.0
+margin_bottom = 65.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect19" type="TextureRect" parent="Panel/ScrollContainer/GridContainer" groups=[
+"slot",
+]]
+margin_left = 148.0
+margin_top = 296.0
+margin_right = 218.0
+margin_bottom = 366.0
+focus_mode = 1
+texture = ExtResource( 6 )
+script = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="Panel/ScrollContainer/GridContainer/TextureRect19"]
+margin_left = 4.0
+margin_top = 51.0
+margin_right = 44.0
+margin_bottom = 65.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect20" type="TextureRect" parent="Panel/ScrollContainer/GridContainer" groups=[
+"slot",
+]]
+margin_left = 222.0
+margin_top = 296.0
+margin_right = 292.0
+margin_bottom = 366.0
+focus_mode = 1
+texture = ExtResource( 6 )
+script = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="Panel/ScrollContainer/GridContainer/TextureRect20"]
+margin_left = 4.0
+margin_top = 51.0
+margin_right = 44.0
+margin_bottom = 65.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect21" type="TextureRect" parent="Panel/ScrollContainer/GridContainer" groups=[
+"slot",
+]]
+margin_top = 370.0
+margin_right = 70.0
+margin_bottom = 440.0
+focus_mode = 1
+texture = ExtResource( 6 )
+script = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="Panel/ScrollContainer/GridContainer/TextureRect21"]
+margin_left = 4.0
+margin_top = 51.0
+margin_right = 44.0
+margin_bottom = 65.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect22" type="TextureRect" parent="Panel/ScrollContainer/GridContainer" groups=[
+"slot",
+]]
+margin_left = 74.0
+margin_top = 370.0
+margin_right = 144.0
+margin_bottom = 440.0
+focus_mode = 1
+texture = ExtResource( 6 )
+script = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="Panel/ScrollContainer/GridContainer/TextureRect22"]
+margin_left = 4.0
+margin_top = 51.0
+margin_right = 44.0
+margin_bottom = 65.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect23" type="TextureRect" parent="Panel/ScrollContainer/GridContainer" groups=[
+"slot",
+]]
+margin_left = 148.0
+margin_top = 370.0
+margin_right = 218.0
+margin_bottom = 440.0
+focus_mode = 1
+texture = ExtResource( 6 )
+script = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="Panel/ScrollContainer/GridContainer/TextureRect23"]
+margin_left = 4.0
+margin_top = 51.0
+margin_right = 44.0
+margin_bottom = 65.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect24" type="TextureRect" parent="Panel/ScrollContainer/GridContainer" groups=[
+"slot",
+]]
+margin_left = 222.0
+margin_top = 370.0
+margin_right = 292.0
+margin_bottom = 440.0
+focus_mode = 1
+texture = ExtResource( 6 )
+script = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="Panel/ScrollContainer/GridContainer/TextureRect24"]
+margin_left = 4.0
+margin_top = 51.0
+margin_right = 44.0
+margin_bottom = 65.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="."]
+modulate = Color( 0.662745, 0.662745, 0.662745, 1 )
+margin_left = -29.0
+margin_top = -110.0
+margin_right = 333.0
+margin_bottom = -23.9999
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="selected" type="Button" parent="Control"]
+margin_left = 194.0
+margin_top = 1.0
+margin_right = 347.0
+margin_bottom = 28.0
+keep_pressed_outside = true
+group = SubResource( 2 )
+text = "select multiple slot"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="upgrade" type="Button" parent="Control"]
+margin_left = 194.0
+margin_top = 32.0
+margin_right = 294.0
+margin_bottom = 59.0
+text = "Upgrade Item"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="sell" type="Button" parent="Control"]
+margin_left = 298.0
+margin_top = 32.0
+margin_right = 347.0
+margin_bottom = 59.0
+text = "sell"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="gear" type="Panel" parent="Control"]
+margin_left = 7.0
+margin_top = -275.0
+margin_right = 357.0
+margin_bottom = -70.0
+rect_min_size = Vector2( 350, 205 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="scroll" type="ScrollContainer" parent="Control/gear"]
+margin_right = 350.0
+margin_bottom = 200.0
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/gear/scroll"]
+margin_right = 342.0
+margin_bottom = 292.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="geardisplay" type="VBoxContainer" parent="Control/gear/scroll/HBoxContainer"]
+margin_right = 248.0
+margin_bottom = 292.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="top" type="CenterContainer" parent="Control/gear/scroll/HBoxContainer/geardisplay"]
+margin_right = 248.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 215, 70 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/gear/scroll/HBoxContainer/geardisplay/top"]
+margin_left = 52.0
+margin_right = 196.0
+margin_bottom = 70.0
+
+[node name="head" type="TextureRect" parent="Control/gear/scroll/HBoxContainer/geardisplay/top/HBoxContainer" groups=[
+"equipment",
+]]
+margin_right = 70.0
+margin_bottom = 70.0
+focus_mode = 1
+texture = ExtResource( 6 )
+script = ExtResource( 8 )
+
+[node name="armor" type="TextureRect" parent="Control/gear/scroll/HBoxContainer/geardisplay/top/HBoxContainer" groups=[
+"equipment",
+]]
+margin_left = 74.0
+margin_right = 144.0
+margin_bottom = 70.0
+focus_mode = 1
+texture = ExtResource( 6 )
+script = ExtResource( 8 )
+
+[node name="middle" type="CenterContainer" parent="Control/gear/scroll/HBoxContainer/geardisplay"]
+margin_top = 74.0
+margin_right = 248.0
+margin_bottom = 218.0
+rect_min_size = Vector2( 215, 140 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSplitContainer" type="HBoxContainer" parent="Control/gear/scroll/HBoxContainer/geardisplay/middle"]
+margin_right = 248.0
+margin_bottom = 144.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/gear/scroll/HBoxContainer/geardisplay/middle/HSplitContainer"]
+margin_right = 70.0
+margin_bottom = 144.0
+
+[node name="accessory" type="TextureRect" parent="Control/gear/scroll/HBoxContainer/geardisplay/middle/HSplitContainer/VBoxContainer" groups=[
+"equipment",
+]]
+margin_right = 70.0
+margin_bottom = 70.0
+focus_mode = 1
+texture = ExtResource( 6 )
+script = ExtResource( 8 )
+
+[node name="weaponrh" type="TextureRect" parent="Control/gear/scroll/HBoxContainer/geardisplay/middle/HSplitContainer/VBoxContainer" groups=[
+"equipment",
+]]
+margin_top = 74.0
+margin_right = 70.0
+margin_bottom = 144.0
+focus_mode = 1
+texture = ExtResource( 6 )
+script = ExtResource( 8 )
+stat = [ "hp", 100, "str", 50 ]
+
+[node name="player" type="PanelContainer" parent="Control/gear/scroll/HBoxContainer/geardisplay/middle/HSplitContainer"]
+margin_left = 74.0
+margin_right = 174.0
+margin_bottom = 144.0
+rect_min_size = Vector2( 100, 140 )
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Control/gear/scroll/HBoxContainer/geardisplay/middle/HSplitContainer"]
+margin_left = 178.0
+margin_right = 248.0
+margin_bottom = 144.0
+
+[node name="accessory2" type="TextureRect" parent="Control/gear/scroll/HBoxContainer/geardisplay/middle/HSplitContainer/VBoxContainer2" groups=[
+"equipment",
+]]
+margin_right = 70.0
+margin_bottom = 70.0
+focus_mode = 1
+texture = ExtResource( 6 )
+script = ExtResource( 8 )
+
+[node name="weaponlh" type="TextureRect" parent="Control/gear/scroll/HBoxContainer/geardisplay/middle/HSplitContainer/VBoxContainer2" groups=[
+"equipment",
+]]
+margin_top = 74.0
+margin_right = 70.0
+margin_bottom = 144.0
+focus_mode = 1
+texture = ExtResource( 6 )
+script = ExtResource( 8 )
+
+[node name="bottom" type="CenterContainer" parent="Control/gear/scroll/HBoxContainer/geardisplay"]
+margin_top = 222.0
+margin_right = 248.0
+margin_bottom = 292.0
+rect_min_size = Vector2( 215, 70 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/gear/scroll/HBoxContainer/geardisplay/bottom"]
+margin_left = 52.0
+margin_right = 196.0
+margin_bottom = 70.0
+
+[node name="leg" type="TextureRect" parent="Control/gear/scroll/HBoxContainer/geardisplay/bottom/HBoxContainer" groups=[
+"equipment",
+]]
+margin_right = 70.0
+margin_bottom = 70.0
+focus_mode = 1
+texture = ExtResource( 6 )
+script = ExtResource( 8 )
+
+[node name="shoes" type="TextureRect" parent="Control/gear/scroll/HBoxContainer/geardisplay/bottom/HBoxContainer" groups=[
+"equipment",
+]]
+margin_left = 74.0
+margin_right = 144.0
+margin_bottom = 70.0
+focus_mode = 1
+texture = ExtResource( 6 )
+script = ExtResource( 8 )
+
+[node name="stats" type="VBoxContainer" parent="Control/gear/scroll/HBoxContainer"]
+margin_left = 252.0
+margin_right = 342.0
+margin_bottom = 292.0
+rect_min_size = Vector2( 90, 200 )
+
+[node name="gear2" type="CheckBox" parent="Control"]
+margin_left = 129.0
+margin_right = 187.0
+margin_bottom = 27.0
+button_mask = 3
+text = "Gear"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="equip" type="Button" parent="Control"]
+margin_left = 134.0
+margin_top = 32.0
+margin_right = 191.0
+margin_bottom = 59.0
+text = "Equip"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="item" type="RichTextLabel" parent="Control"]
+margin_top = 0.471939
+margin_right = 67.0
+margin_bottom = 60.4719
+text = "Selected"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="equipItem" type="RichTextLabel" parent="Control"]
+margin_left = 67.0
+margin_top = 0.472
+margin_right = 134.0
+margin_bottom = 60.472
+text = "Equiped"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Multisellamount" type="WindowDialog" parent="."]
+visible = true
+margin_left = 15.0
+margin_top = 114.0
+margin_right = 360.0
+margin_bottom = 194.0
+window_title = "Amount of item you would like to sell!!"
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HScrollBar" type="HSlider" parent="Multisellamount"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -149.5
+margin_top = 5.0
+margin_right = 150.5
+margin_bottom = 31.0
+custom_icons/grabber_highlight = ExtResource( 7 )
+custom_icons/grabber = ExtResource( 7 )
+custom_styles/slider = SubResource( 3 )
+min_value = 1.0
+value = 1.0
+rounded = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="Multisellamount"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -207.0
+margin_top = -45.0
+margin_right = -30.0
+margin_bottom = -5.0
+text = "Confirm"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Multisellamount"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 30.0
+margin_top = -45.0
+margin_right = 90.0
+margin_bottom = -5.0
+rect_min_size = Vector2( 0, 40 )
+custom_styles/normal = SubResource( 4 )
+text = "1"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="focus_entered" from="Panel/ScrollContainer/GridContainer/TextureRect" to="Control" method="_on_TextureRect_focus_entered" binds= [ 0 ]]
+[connection signal="focus_exited" from="Panel/ScrollContainer/GridContainer/TextureRect" to="Control" method="_on_TextureRect_focus_exited"]
+[connection signal="gui_input" from="Panel/ScrollContainer/GridContainer/TextureRect" to="Panel/ScrollContainer/GridContainer/TextureRect" method="_on_TextureRect_gui_input"]
+[connection signal="sort_slot" from="Panel/ScrollContainer/GridContainer/TextureRect" to="Panel/ScrollContainer/GridContainer" method="_on_TextureRect_sort_slot"]
+[connection signal="switch_texture" from="Panel/ScrollContainer/GridContainer/TextureRect" to="." method="_on_TextureRect_switch_texture"]
+[connection signal="focus_entered" from="Panel/ScrollContainer/GridContainer/TextureRect2" to="Control" method="_on_TextureRect_focus_entered" binds= [ 1 ]]
+[connection signal="focus_exited" from="Panel/ScrollContainer/GridContainer/TextureRect2" to="Control" method="_on_TextureRect_focus_exited"]
+[connection signal="gui_input" from="Panel/ScrollContainer/GridContainer/TextureRect2" to="Panel/ScrollContainer/GridContainer/TextureRect2" method="_on_TextureRect_gui_input"]
+[connection signal="sort_slot" from="Panel/ScrollContainer/GridContainer/TextureRect2" to="Panel/ScrollContainer/GridContainer" method="_on_TextureRect_sort_slot"]
+[connection signal="switch_texture" from="Panel/ScrollContainer/GridContainer/TextureRect2" to="." method="_on_TextureRect_switch_texture"]
+[connection signal="focus_entered" from="Panel/ScrollContainer/GridContainer/TextureRect3" to="Control" method="_on_TextureRect_focus_entered" binds= [ 2 ]]
+[connection signal="focus_exited" from="Panel/ScrollContainer/GridContainer/TextureRect3" to="Control" method="_on_TextureRect_focus_exited"]
+[connection signal="gui_input" from="Panel/ScrollContainer/GridContainer/TextureRect3" to="Panel/ScrollContainer/GridContainer/TextureRect3" method="_on_TextureRect_gui_input"]
+[connection signal="sort_slot" from="Panel/ScrollContainer/GridContainer/TextureRect3" to="Panel/ScrollContainer/GridContainer" method="_on_TextureRect_sort_slot"]
+[connection signal="switch_texture" from="Panel/ScrollContainer/GridContainer/TextureRect3" to="." method="_on_TextureRect_switch_texture"]
+[connection signal="focus_entered" from="Panel/ScrollContainer/GridContainer/TextureRect4" to="Control" method="_on_TextureRect_focus_entered" binds= [ 3 ]]
+[connection signal="focus_exited" from="Panel/ScrollContainer/GridContainer/TextureRect4" to="Control" method="_on_TextureRect_focus_exited"]
+[connection signal="gui_input" from="Panel/ScrollContainer/GridContainer/TextureRect4" to="Panel/ScrollContainer/GridContainer/TextureRect4" method="_on_TextureRect_gui_input"]
+[connection signal="sort_slot" from="Panel/ScrollContainer/GridContainer/TextureRect4" to="Panel/ScrollContainer/GridContainer" method="_on_TextureRect_sort_slot"]
+[connection signal="switch_texture" from="Panel/ScrollContainer/GridContainer/TextureRect4" to="." method="_on_TextureRect_switch_texture"]
+[connection signal="focus_entered" from="Panel/ScrollContainer/GridContainer/TextureRect5" to="Control" method="_on_TextureRect_focus_entered" binds= [ 4 ]]
+[connection signal="focus_exited" from="Panel/ScrollContainer/GridContainer/TextureRect5" to="Control" method="_on_TextureRect_focus_exited"]
+[connection signal="gui_input" from="Panel/ScrollContainer/GridContainer/TextureRect5" to="Panel/ScrollContainer/GridContainer/TextureRect5" method="_on_TextureRect_gui_input"]
+[connection signal="sort_slot" from="Panel/ScrollContainer/GridContainer/TextureRect5" to="Panel/ScrollContainer/GridContainer" method="_on_TextureRect_sort_slot"]
+[connection signal="switch_texture" from="Panel/ScrollContainer/GridContainer/TextureRect5" to="." method="_on_TextureRect_switch_texture"]
+[connection signal="focus_entered" from="Panel/ScrollContainer/GridContainer/TextureRect6" to="Control" method="_on_TextureRect_focus_entered" binds= [ 5 ]]
+[connection signal="focus_exited" from="Panel/ScrollContainer/GridContainer/TextureRect6" to="Control" method="_on_TextureRect_focus_exited"]
+[connection signal="gui_input" from="Panel/ScrollContainer/GridContainer/TextureRect6" to="Panel/ScrollContainer/GridContainer/TextureRect6" method="_on_TextureRect_gui_input"]
+[connection signal="sort_slot" from="Panel/ScrollContainer/GridContainer/TextureRect6" to="Panel/ScrollContainer/GridContainer" method="_on_TextureRect_sort_slot"]
+[connection signal="switch_texture" from="Panel/ScrollContainer/GridContainer/TextureRect6" to="." method="_on_TextureRect_switch_texture"]
+[connection signal="focus_entered" from="Panel/ScrollContainer/GridContainer/TextureRect7" to="Control" method="_on_TextureRect_focus_entered" binds= [ 6 ]]
+[connection signal="focus_exited" from="Panel/ScrollContainer/GridContainer/TextureRect7" to="Control" method="_on_TextureRect_focus_exited"]
+[connection signal="gui_input" from="Panel/ScrollContainer/GridContainer/TextureRect7" to="Panel/ScrollContainer/GridContainer/TextureRect7" method="_on_TextureRect_gui_input"]
+[connection signal="sort_slot" from="Panel/ScrollContainer/GridContainer/TextureRect7" to="Panel/ScrollContainer/GridContainer" method="_on_TextureRect_sort_slot"]
+[connection signal="switch_texture" from="Panel/ScrollContainer/GridContainer/TextureRect7" to="." method="_on_TextureRect_switch_texture"]
+[connection signal="focus_entered" from="Panel/ScrollContainer/GridContainer/TextureRect8" to="Control" method="_on_TextureRect_focus_entered" binds= [ 7 ]]
+[connection signal="focus_exited" from="Panel/ScrollContainer/GridContainer/TextureRect8" to="Control" method="_on_TextureRect_focus_exited"]
+[connection signal="gui_input" from="Panel/ScrollContainer/GridContainer/TextureRect8" to="Panel/ScrollContainer/GridContainer/TextureRect8" method="_on_TextureRect_gui_input"]
+[connection signal="sort_slot" from="Panel/ScrollContainer/GridContainer/TextureRect8" to="Panel/ScrollContainer/GridContainer" method="_on_TextureRect_sort_slot"]
+[connection signal="switch_texture" from="Panel/ScrollContainer/GridContainer/TextureRect8" to="." method="_on_TextureRect_switch_texture"]
+[connection signal="focus_entered" from="Panel/ScrollContainer/GridContainer/TextureRect9" to="Control" method="_on_TextureRect_focus_entered" binds= [ 8 ]]
+[connection signal="focus_exited" from="Panel/ScrollContainer/GridContainer/TextureRect9" to="Control" method="_on_TextureRect_focus_exited"]
+[connection signal="gui_input" from="Panel/ScrollContainer/GridContainer/TextureRect9" to="Panel/ScrollContainer/GridContainer/TextureRect9" method="_on_TextureRect_gui_input"]
+[connection signal="sort_slot" from="Panel/ScrollContainer/GridContainer/TextureRect9" to="Panel/ScrollContainer/GridContainer" method="_on_TextureRect_sort_slot"]
+[connection signal="switch_texture" from="Panel/ScrollContainer/GridContainer/TextureRect9" to="." method="_on_TextureRect_switch_texture"]
+[connection signal="focus_entered" from="Panel/ScrollContainer/GridContainer/TextureRect10" to="Control" method="_on_TextureRect_focus_entered" binds= [ 9 ]]
+[connection signal="focus_exited" from="Panel/ScrollContainer/GridContainer/TextureRect10" to="Control" method="_on_TextureRect_focus_exited"]
+[connection signal="gui_input" from="Panel/ScrollContainer/GridContainer/TextureRect10" to="Panel/ScrollContainer/GridContainer/TextureRect10" method="_on_TextureRect_gui_input"]
+[connection signal="sort_slot" from="Panel/ScrollContainer/GridContainer/TextureRect10" to="Panel/ScrollContainer/GridContainer" method="_on_TextureRect_sort_slot"]
+[connection signal="switch_texture" from="Panel/ScrollContainer/GridContainer/TextureRect10" to="." method="_on_TextureRect_switch_texture"]
+[connection signal="focus_entered" from="Panel/ScrollContainer/GridContainer/TextureRect11" to="Control" method="_on_TextureRect_focus_entered" binds= [ 10 ]]
+[connection signal="focus_exited" from="Panel/ScrollContainer/GridContainer/TextureRect11" to="Control" method="_on_TextureRect_focus_exited"]
+[connection signal="gui_input" from="Panel/ScrollContainer/GridContainer/TextureRect11" to="Panel/ScrollContainer/GridContainer/TextureRect11" method="_on_TextureRect_gui_input"]
+[connection signal="sort_slot" from="Panel/ScrollContainer/GridContainer/TextureRect11" to="Panel/ScrollContainer/GridContainer" method="_on_TextureRect_sort_slot"]
+[connection signal="switch_texture" from="Panel/ScrollContainer/GridContainer/TextureRect11" to="." method="_on_TextureRect_switch_texture"]
+[connection signal="focus_entered" from="Panel/ScrollContainer/GridContainer/TextureRect12" to="Control" method="_on_TextureRect_focus_entered" binds= [ 11 ]]
+[connection signal="focus_exited" from="Panel/ScrollContainer/GridContainer/TextureRect12" to="Control" method="_on_TextureRect_focus_exited"]
+[connection signal="gui_input" from="Panel/ScrollContainer/GridContainer/TextureRect12" to="Panel/ScrollContainer/GridContainer/TextureRect12" method="_on_TextureRect_gui_input"]
+[connection signal="sort_slot" from="Panel/ScrollContainer/GridContainer/TextureRect12" to="Panel/ScrollContainer/GridContainer" method="_on_TextureRect_sort_slot"]
+[connection signal="switch_texture" from="Panel/ScrollContainer/GridContainer/TextureRect12" to="." method="_on_TextureRect_switch_texture"]
+[connection signal="focus_entered" from="Panel/ScrollContainer/GridContainer/TextureRect13" to="Control" method="_on_TextureRect_focus_entered" binds= [ 12 ]]
+[connection signal="focus_exited" from="Panel/ScrollContainer/GridContainer/TextureRect13" to="Control" method="_on_TextureRect_focus_exited"]
+[connection signal="gui_input" from="Panel/ScrollContainer/GridContainer/TextureRect13" to="Panel/ScrollContainer/GridContainer/TextureRect13" method="_on_TextureRect_gui_input"]
+[connection signal="sort_slot" from="Panel/ScrollContainer/GridContainer/TextureRect13" to="Panel/ScrollContainer/GridContainer" method="_on_TextureRect_sort_slot"]
+[connection signal="switch_texture" from="Panel/ScrollContainer/GridContainer/TextureRect13" to="." method="_on_TextureRect_switch_texture"]
+[connection signal="focus_entered" from="Panel/ScrollContainer/GridContainer/TextureRect14" to="Control" method="_on_TextureRect_focus_entered" binds= [ 13 ]]
+[connection signal="focus_exited" from="Panel/ScrollContainer/GridContainer/TextureRect14" to="Control" method="_on_TextureRect_focus_exited"]
+[connection signal="gui_input" from="Panel/ScrollContainer/GridContainer/TextureRect14" to="Panel/ScrollContainer/GridContainer/TextureRect14" method="_on_TextureRect_gui_input"]
+[connection signal="sort_slot" from="Panel/ScrollContainer/GridContainer/TextureRect14" to="Panel/ScrollContainer/GridContainer" method="_on_TextureRect_sort_slot"]
+[connection signal="switch_texture" from="Panel/ScrollContainer/GridContainer/TextureRect14" to="." method="_on_TextureRect_switch_texture"]
+[connection signal="focus_entered" from="Panel/ScrollContainer/GridContainer/TextureRect15" to="Control" method="_on_TextureRect_focus_entered" binds= [ 14 ]]
+[connection signal="focus_exited" from="Panel/ScrollContainer/GridContainer/TextureRect15" to="Control" method="_on_TextureRect_focus_exited"]
+[connection signal="gui_input" from="Panel/ScrollContainer/GridContainer/TextureRect15" to="Panel/ScrollContainer/GridContainer/TextureRect15" method="_on_TextureRect_gui_input"]
+[connection signal="sort_slot" from="Panel/ScrollContainer/GridContainer/TextureRect15" to="Panel/ScrollContainer/GridContainer" method="_on_TextureRect_sort_slot"]
+[connection signal="switch_texture" from="Panel/ScrollContainer/GridContainer/TextureRect15" to="." method="_on_TextureRect_switch_texture"]
+[connection signal="focus_entered" from="Panel/ScrollContainer/GridContainer/TextureRect16" to="Control" method="_on_TextureRect_focus_entered" binds= [ 15 ]]
+[connection signal="focus_exited" from="Panel/ScrollContainer/GridContainer/TextureRect16" to="Control" method="_on_TextureRect_focus_exited"]
+[connection signal="gui_input" from="Panel/ScrollContainer/GridContainer/TextureRect16" to="Panel/ScrollContainer/GridContainer/TextureRect16" method="_on_TextureRect_gui_input"]
+[connection signal="sort_slot" from="Panel/ScrollContainer/GridContainer/TextureRect16" to="Panel/ScrollContainer/GridContainer" method="_on_TextureRect_sort_slot"]
+[connection signal="switch_texture" from="Panel/ScrollContainer/GridContainer/TextureRect16" to="." method="_on_TextureRect_switch_texture"]
+[connection signal="focus_entered" from="Panel/ScrollContainer/GridContainer/TextureRect17" to="Control" method="_on_TextureRect_focus_entered" binds= [ 16 ]]
+[connection signal="focus_exited" from="Panel/ScrollContainer/GridContainer/TextureRect17" to="Control" method="_on_TextureRect_focus_exited"]
+[connection signal="gui_input" from="Panel/ScrollContainer/GridContainer/TextureRect17" to="Panel/ScrollContainer/GridContainer/TextureRect17" method="_on_TextureRect_gui_input"]
+[connection signal="sort_slot" from="Panel/ScrollContainer/GridContainer/TextureRect17" to="Panel/ScrollContainer/GridContainer" method="_on_TextureRect_sort_slot"]
+[connection signal="switch_texture" from="Panel/ScrollContainer/GridContainer/TextureRect17" to="." method="_on_TextureRect_switch_texture"]
+[connection signal="focus_entered" from="Panel/ScrollContainer/GridContainer/TextureRect18" to="Control" method="_on_TextureRect_focus_entered" binds= [ 17 ]]
+[connection signal="focus_exited" from="Panel/ScrollContainer/GridContainer/TextureRect18" to="Control" method="_on_TextureRect_focus_exited"]
+[connection signal="gui_input" from="Panel/ScrollContainer/GridContainer/TextureRect18" to="Panel/ScrollContainer/GridContainer/TextureRect18" method="_on_TextureRect_gui_input"]
+[connection signal="sort_slot" from="Panel/ScrollContainer/GridContainer/TextureRect18" to="Panel/ScrollContainer/GridContainer" method="_on_TextureRect_sort_slot"]
+[connection signal="switch_texture" from="Panel/ScrollContainer/GridContainer/TextureRect18" to="." method="_on_TextureRect_switch_texture"]
+[connection signal="focus_entered" from="Panel/ScrollContainer/GridContainer/TextureRect19" to="Control" method="_on_TextureRect_focus_entered" binds= [ 18 ]]
+[connection signal="focus_exited" from="Panel/ScrollContainer/GridContainer/TextureRect19" to="Control" method="_on_TextureRect_focus_exited"]
+[connection signal="gui_input" from="Panel/ScrollContainer/GridContainer/TextureRect19" to="Panel/ScrollContainer/GridContainer/TextureRect19" method="_on_TextureRect_gui_input"]
+[connection signal="sort_slot" from="Panel/ScrollContainer/GridContainer/TextureRect19" to="Panel/ScrollContainer/GridContainer" method="_on_TextureRect_sort_slot"]
+[connection signal="switch_texture" from="Panel/ScrollContainer/GridContainer/TextureRect19" to="." method="_on_TextureRect_switch_texture"]
+[connection signal="focus_entered" from="Panel/ScrollContainer/GridContainer/TextureRect20" to="Control" method="_on_TextureRect_focus_entered" binds= [ 19 ]]
+[connection signal="focus_exited" from="Panel/ScrollContainer/GridContainer/TextureRect20" to="Control" method="_on_TextureRect_focus_exited"]
+[connection signal="gui_input" from="Panel/ScrollContainer/GridContainer/TextureRect20" to="Panel/ScrollContainer/GridContainer/TextureRect20" method="_on_TextureRect_gui_input"]
+[connection signal="sort_slot" from="Panel/ScrollContainer/GridContainer/TextureRect20" to="Panel/ScrollContainer/GridContainer" method="_on_TextureRect_sort_slot"]
+[connection signal="switch_texture" from="Panel/ScrollContainer/GridContainer/TextureRect20" to="." method="_on_TextureRect_switch_texture"]
+[connection signal="focus_entered" from="Panel/ScrollContainer/GridContainer/TextureRect21" to="Control" method="_on_TextureRect_focus_entered" binds= [ 20 ]]
+[connection signal="focus_exited" from="Panel/ScrollContainer/GridContainer/TextureRect21" to="Control" method="_on_TextureRect_focus_exited"]
+[connection signal="gui_input" from="Panel/ScrollContainer/GridContainer/TextureRect21" to="Panel/ScrollContainer/GridContainer/TextureRect21" method="_on_TextureRect_gui_input"]
+[connection signal="sort_slot" from="Panel/ScrollContainer/GridContainer/TextureRect21" to="Panel/ScrollContainer/GridContainer" method="_on_TextureRect_sort_slot"]
+[connection signal="switch_texture" from="Panel/ScrollContainer/GridContainer/TextureRect21" to="." method="_on_TextureRect_switch_texture"]
+[connection signal="focus_entered" from="Panel/ScrollContainer/GridContainer/TextureRect22" to="Control" method="_on_TextureRect_focus_entered" binds= [ 21 ]]
+[connection signal="focus_exited" from="Panel/ScrollContainer/GridContainer/TextureRect22" to="Control" method="_on_TextureRect_focus_exited"]
+[connection signal="gui_input" from="Panel/ScrollContainer/GridContainer/TextureRect22" to="Panel/ScrollContainer/GridContainer/TextureRect22" method="_on_TextureRect_gui_input"]
+[connection signal="sort_slot" from="Panel/ScrollContainer/GridContainer/TextureRect22" to="Panel/ScrollContainer/GridContainer" method="_on_TextureRect_sort_slot"]
+[connection signal="switch_texture" from="Panel/ScrollContainer/GridContainer/TextureRect22" to="." method="_on_TextureRect_switch_texture"]
+[connection signal="focus_entered" from="Panel/ScrollContainer/GridContainer/TextureRect23" to="Control" method="_on_TextureRect_focus_entered" binds= [ 22 ]]
+[connection signal="focus_exited" from="Panel/ScrollContainer/GridContainer/TextureRect23" to="Control" method="_on_TextureRect_focus_exited"]
+[connection signal="gui_input" from="Panel/ScrollContainer/GridContainer/TextureRect23" to="Panel/ScrollContainer/GridContainer/TextureRect23" method="_on_TextureRect_gui_input"]
+[connection signal="sort_slot" from="Panel/ScrollContainer/GridContainer/TextureRect23" to="Panel/ScrollContainer/GridContainer" method="_on_TextureRect_sort_slot"]
+[connection signal="switch_texture" from="Panel/ScrollContainer/GridContainer/TextureRect23" to="." method="_on_TextureRect_switch_texture"]
+[connection signal="focus_entered" from="Panel/ScrollContainer/GridContainer/TextureRect24" to="Control" method="_on_TextureRect_focus_entered" binds= [ 23 ]]
+[connection signal="focus_exited" from="Panel/ScrollContainer/GridContainer/TextureRect24" to="Control" method="_on_TextureRect_focus_exited"]
+[connection signal="gui_input" from="Panel/ScrollContainer/GridContainer/TextureRect24" to="Panel/ScrollContainer/GridContainer/TextureRect24" method="_on_TextureRect_gui_input"]
+[connection signal="sort_slot" from="Panel/ScrollContainer/GridContainer/TextureRect24" to="Panel/ScrollContainer/GridContainer" method="_on_TextureRect_sort_slot"]
+[connection signal="switch_texture" from="Panel/ScrollContainer/GridContainer/TextureRect24" to="." method="_on_TextureRect_switch_texture"]
+[connection signal="pressed" from="Control/selected" to="Control" method="_on_Button_pressed"]
+[connection signal="button_down" from="Control/upgrade" to="." method="_on_upgrade_button_down"]
+[connection signal="pressed" from="Control/sell" to="." method="_on_sell_pressed"]
+[connection signal="focus_entered" from="Control/gear/scroll/HBoxContainer/geardisplay/top/HBoxContainer/head" to="." method="_on_equiped_focus_entered" binds= [ 0 ]]
+[connection signal="focus_entered" from="Control/gear/scroll/HBoxContainer/geardisplay/top/HBoxContainer/armor" to="." method="_on_equiped_focus_entered" binds= [ 1 ]]
+[connection signal="focus_entered" from="Control/gear/scroll/HBoxContainer/geardisplay/middle/HSplitContainer/VBoxContainer/accessory" to="." method="_on_equiped_focus_entered" binds= [ 2 ]]
+[connection signal="focus_entered" from="Control/gear/scroll/HBoxContainer/geardisplay/middle/HSplitContainer/VBoxContainer/weaponrh" to="." method="_on_equiped_focus_entered" binds= [ 3 ]]
+[connection signal="focus_entered" from="Control/gear/scroll/HBoxContainer/geardisplay/middle/HSplitContainer/VBoxContainer2/accessory2" to="." method="_on_equiped_focus_entered" binds= [ 4 ]]
+[connection signal="focus_entered" from="Control/gear/scroll/HBoxContainer/geardisplay/middle/HSplitContainer/VBoxContainer2/weaponlh" to="." method="_on_equiped_focus_entered" binds= [ 5 ]]
+[connection signal="focus_entered" from="Control/gear/scroll/HBoxContainer/geardisplay/bottom/HBoxContainer/leg" to="." method="_on_equiped_focus_entered" binds= [ 6 ]]
+[connection signal="focus_entered" from="Control/gear/scroll/HBoxContainer/geardisplay/bottom/HBoxContainer/shoes" to="." method="_on_equiped_focus_entered" binds= [ 7 ]]
+[connection signal="toggled" from="Control/gear2" to="Control" method="_on_gear2_toggled"]
+[connection signal="pressed" from="Control/equip" to="." method="_on_equip_pressed"]
+[connection signal="value_changed" from="Multisellamount/HScrollBar" to="Multisellamount" method="_on_HScrollBar_value_changed"]
+[connection signal="pressed" from="Multisellamount/Button" to="." method="_on_sellconfirmButton_pressed"]

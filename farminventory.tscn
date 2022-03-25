@@ -1,0 +1,189 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://resource/game/farmslotselected.tres" type="ButtonGroup" id=1]
+[ext_resource path="res://resource/game/farmslot.tscn" type="PackedScene" id=2]
+[ext_resource path="res://resource/game/farmscrollinv.gd" type="Script" id=4]
+
+[node name="ScrollContainer2" type="ScrollContainer"]
+margin_left = 35.0
+margin_top = 409.0
+margin_right = 350.0
+margin_bottom = 639.0
+rect_min_size = Vector2( 315, 230 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="."]
+margin_right = 292.0
+margin_bottom = 366.0
+rect_min_size = Vector2( 292, 300 )
+columns = 4
+
+[node name="TextureRect" parent="GridContainer" groups=[
+"farmslot",
+] instance=ExtResource( 2 )]
+shortcut_in_tooltip = false
+group = ExtResource( 1 )
+
+[node name="TextureRect2" parent="GridContainer" groups=[
+"farmslot",
+] instance=ExtResource( 2 )]
+margin_left = 74.0
+margin_right = 144.0
+group = ExtResource( 1 )
+
+[node name="TextureRect3" parent="GridContainer" groups=[
+"farmslot",
+] instance=ExtResource( 2 )]
+margin_left = 148.0
+margin_right = 218.0
+group = ExtResource( 1 )
+
+[node name="TextureRect4" parent="GridContainer" groups=[
+"farmslot",
+] instance=ExtResource( 2 )]
+margin_left = 222.0
+margin_right = 292.0
+group = ExtResource( 1 )
+
+[node name="TextureRect5" parent="GridContainer" groups=[
+"farmslot",
+] instance=ExtResource( 2 )]
+margin_top = 74.0
+margin_bottom = 144.0
+group = ExtResource( 1 )
+
+[node name="TextureRect6" parent="GridContainer" groups=[
+"farmslot",
+] instance=ExtResource( 2 )]
+margin_left = 74.0
+margin_top = 74.0
+margin_right = 144.0
+margin_bottom = 144.0
+group = ExtResource( 1 )
+
+[node name="TextureRect7" parent="GridContainer" groups=[
+"farmslot",
+] instance=ExtResource( 2 )]
+margin_left = 148.0
+margin_top = 74.0
+margin_right = 218.0
+margin_bottom = 144.0
+group = ExtResource( 1 )
+
+[node name="TextureRect8" parent="GridContainer" groups=[
+"farmslot",
+] instance=ExtResource( 2 )]
+margin_left = 222.0
+margin_top = 74.0
+margin_right = 292.0
+margin_bottom = 144.0
+group = ExtResource( 1 )
+
+[node name="TextureRect9" parent="GridContainer" groups=[
+"farmslot",
+] instance=ExtResource( 2 )]
+margin_top = 148.0
+margin_bottom = 218.0
+group = ExtResource( 1 )
+
+[node name="TextureRect10" parent="GridContainer" groups=[
+"farmslot",
+] instance=ExtResource( 2 )]
+margin_left = 74.0
+margin_top = 148.0
+margin_right = 144.0
+margin_bottom = 218.0
+group = ExtResource( 1 )
+
+[node name="TextureRect11" parent="GridContainer" groups=[
+"farmslot",
+] instance=ExtResource( 2 )]
+margin_left = 148.0
+margin_top = 148.0
+margin_right = 218.0
+margin_bottom = 218.0
+group = ExtResource( 1 )
+
+[node name="TextureRect12" parent="GridContainer" groups=[
+"farmslot",
+] instance=ExtResource( 2 )]
+margin_left = 222.0
+margin_top = 148.0
+margin_right = 292.0
+margin_bottom = 218.0
+group = ExtResource( 1 )
+
+[node name="TextureRect13" parent="GridContainer" groups=[
+"farmslot",
+] instance=ExtResource( 2 )]
+margin_top = 222.0
+margin_bottom = 292.0
+group = ExtResource( 1 )
+
+[node name="TextureRect14" parent="GridContainer" groups=[
+"farmslot",
+] instance=ExtResource( 2 )]
+margin_left = 74.0
+margin_top = 222.0
+margin_right = 144.0
+margin_bottom = 292.0
+group = ExtResource( 1 )
+
+[node name="TextureRect15" parent="GridContainer" groups=[
+"farmslot",
+] instance=ExtResource( 2 )]
+margin_left = 148.0
+margin_top = 222.0
+margin_right = 218.0
+margin_bottom = 292.0
+group = ExtResource( 1 )
+
+[node name="TextureRect16" parent="GridContainer" groups=[
+"farmslot",
+] instance=ExtResource( 2 )]
+margin_left = 222.0
+margin_top = 222.0
+margin_right = 292.0
+margin_bottom = 292.0
+group = ExtResource( 1 )
+
+[node name="TextureRect17" parent="GridContainer" groups=[
+"farmslot",
+] instance=ExtResource( 2 )]
+margin_top = 296.0
+margin_bottom = 366.0
+focus_mode = 2
+group = ExtResource( 1 )
+
+[node name="TextureRect18" parent="GridContainer" groups=[
+"farmslot",
+] instance=ExtResource( 2 )]
+margin_left = 74.0
+margin_top = 296.0
+margin_right = 144.0
+margin_bottom = 366.0
+focus_mode = 2
+group = ExtResource( 1 )
+
+[node name="TextureRect19" parent="GridContainer" groups=[
+"farmslot",
+] instance=ExtResource( 2 )]
+margin_left = 148.0
+margin_top = 296.0
+margin_right = 218.0
+margin_bottom = 366.0
+focus_mode = 2
+group = ExtResource( 1 )
+
+[node name="TextureRect20" parent="GridContainer" groups=[
+"farmslot",
+] instance=ExtResource( 2 )]
+margin_left = 222.0
+margin_top = 296.0
+margin_right = 292.0
+margin_bottom = 366.0
+focus_mode = 2
+group = ExtResource( 1 )
