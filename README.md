@@ -1,4 +1,5 @@
-# Idle-Game (click on raw to make it easier to read with correct indents.)
+# Idle-Game 
+```
 main Scene file is Level.tscn and script connected to that file is level1.gd which just saves character progroess by calling save function from the script save.gd. level.tscn has multiple child scene/node that makes up that scene! child scene/node connected to main scene(level.tscn) are 
       -map button node which is called in level.gd script, 
       -parallax background node, paralax layer node, and background node which is called in playerStateTest.gd script, 
@@ -20,7 +21,7 @@ main Scene file is Level.tscn and script connected to that file is level1.gd whi
       -spawn&Death_Track.tscn
       -openshop button node which connect to androidShop.tscn
       -androidShop.tscn
-
+```
           
           
       
